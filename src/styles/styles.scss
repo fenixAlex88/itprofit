@@ -1,0 +1,161 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #fff1eb, #ace0f9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.modal-active {
+        overflow: hidden;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px 0 #223c5033;
+}
+
+.left-side {
+    width: 25%;
+    height: 100%;
+}
+
+.right-side {
+    width: 75%;
+    padding-left: 75px;
+    padding-right: 25px;
+    border-left: 2px solid #afafb6;
+}
+
+.form-header {
+    font-size: 23px;
+    font-weight: 600;
+    color: #3e2093;
+    margin-bottom: 10px;
+}
+.input-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+    input,
+    textarea {
+        min-height: 35px;
+        border: none;
+        border-radius: 5px;
+        background: #f0f1f8;
+        padding: 0 20px;
+    }
+    textarea {
+        min-height: 110px;
+        resize: none;
+    }
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 7px;
+    transition: 0.2s;
+    &.submit-btn {
+        color: #fff;
+        background: #3e2093;
+        &:hover {
+            background: darken(#3e2093, 15%);
+        }
+    }
+    &.info-btn {
+        color: #fff;
+        background: #299426;
+        &:hover {
+            background: darken(#299426, 15%);
+        }
+    }
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.message {
+	margin-top: 20px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.modal {
+    display: flex;
+	transform: scale(0);
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    padding: 30px;
+    background-color: #0000009a;
+    overflow-y: auto;
+    cursor: pointer;
+    &.open {
+		transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-main {
+    position: relative;
+    max-width: 600px;
+    background-color: #f0f1f8;
+    border-radius: 15px;
+    padding: 30px;
+    cursor: default;
+}
+
+.modal-title {
+    margin-bottom: 20px;
+}
+
+.modal-close {
+    display: block;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    outline-color: transparent;
+    outline-offset: 3px;
+    border-radius: 3px;
+    transition: outline-color 0.15s ease;
+	&:hover {
+		transform: scale(1.05) translate(1px, -1px);
+	}
+    &:focus-visible {
+        outline-color: #ff0000;
+    }
+}
