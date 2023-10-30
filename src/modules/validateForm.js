@@ -1,20 +1,21 @@
 const validateForm = (data) => {
-    // создаем пустой объект для хранения результатов
     const errors = {};
     for (let [key, value] of Object.entries(data)) {
         value = value.trim();
+        //check that the field is not empty
         if (value === "") {
             errors[key] = "Это поле обязательно к заполнению";
         }
     }
-    // проверяем, что поле email содержит корректный адрес электронной почты
+
+    // checking that the email field contains a valid email address
     if (data.inputEmail) {
-        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        const emailRegex = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm;
         if (!emailRegex.test(data.inputEmail)) {
             errors.inputEmail = "Введите корректный адрес электронной почты";
         }
     }
-    // проверяем, что поле телефон содержит корректный номер по маске
+    // check that the phone field contains the correct number
     if (data.inputPhone) {
         if (data.inputPhone.length !== 12) {
             errors.inputPhone = "Введите корректный номер телефона";

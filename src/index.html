@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <meta name="theme-color" content="#317EFB"/>
+        <title>Feedback form</title>
     </head>
     <body>
         <div class="container">
@@ -11,33 +12,33 @@
                 <div class="left-side"></div>
                 <div class="right-side">
                     <h1 class="form-header">Отправьте нам сообщение</h1>
-                    <form id="messageForm" class="form">
-                        <div class="input-box">
+                    <form id="messageForm" class="form" aria-label="Форма для отправки сообщения">
+                        <div class="input-box" role="group" aria-label="Имя">
                             <label for="inputName">Имя</label>
                             <input type="text" name="inputName" id="inputName" class="input" />
                         </div>
-                        <div class="input-box">
+                        <div class="input-box" role="group" aria-label="E-mail">
                             <label for="inputEmail">E-mail</label>
                             <input type="email" name="inputEmail" id="inputEmail" class="input" />
                         </div>
-                        <div class="input-box">
+                        <div class="input-box" role="group" aria-label="Телефон">
                             <label for="inputPhone">Телефон</label>
                             <input type="text" name="inputPhone" id="inputPhone" class="input" />
                         </div>
-                        <div class="input-box">
+                        <div class="input-box" role="group" aria-label="Сообщение">
                             <label for="messageArea">Сообщение</label>
                             <textarea name="Message" id="messageArea" class="input"></textarea>
                         </div>
 
-                        <button type="submit" class="btn submit-btn">Отправить</button>
-                        <button type="button" class="btn info-btn">Информация</button>
+                        <button type="submit" class="btn submit-btn" role="button">Отправить</button>
+                        <button type="button" class="btn info-btn" role="button">Информация</button>
                     </form>
-                    <div class="message"></div>
+                    <div class="message" role="alert"></div>
                 </div>
             </div>
         </div>
 
-        <div class="modal">
+        <div class="modal" role="dialog" aria-label="Модальное окно">
             <div class="modal-main">
                 <h2 class="modal-title">Модальное окно</h2>
                 <div class="modal-content">
@@ -47,7 +48,7 @@
                         quam ab perspiciatis eveniet nisi, libero tempora recusandae a consequatur!
                     </p>
                 </div>
-				<button type="button" class="modal-close">&#10006;</button>
+				<button type="button" class="modal-close" role="button" aria-label="Закрыть модальное окно">&#10006;</button>
             </div>
         </div>
     </body>

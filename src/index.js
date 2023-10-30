@@ -33,10 +33,7 @@ const closeModalHandler = (event) => {
     }
 };
 
-infoButton.addEventListener("click", openModalHandler);
-modal.addEventListener("click", closeModalHandler);
-
-form.addEventListener("submit", async (event) => {
+const submitFormHandler = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     formData.append("inputPhone", phoneMask.unmaskedValue);
@@ -45,11 +42,17 @@ form.addEventListener("submit", async (event) => {
     if (Object.keys(errors).length === 0) {
         submitButton.disabled = true;
         const msg = await sendAjaxForm(formData, BASE_URL);
-        message.textContent = msg;
-        form.reset();
-        showErrors();
+        if (msg) {
+            message.textContent = msg;
+            form.reset();
+            showErrors();
+        }
         submitButton.disabled = false;
     } else {
         showErrors(errors);
     }
-});
+};
+
+infoButton.addEventListener("click", openModalHandler);
+modal.addEventListener("click", closeModalHandler);
+form.addEventListener("submit", submitFormHandler);
